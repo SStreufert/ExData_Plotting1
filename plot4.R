@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------
 # load data frame & prepare data types
 # -----------------------------------------------------------------------
-hpc <- read.csv("~/Statistics/ExploratoryData/household_power_consumption.txt", sep=";", nrows=2075259, stringsAsFactors=FALSE, colClasses=c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"), na.strings="?")
+hpc <- read.csv("household_power_consumption.txt", sep=";", nrows=2075259, stringsAsFactors=FALSE, colClasses=c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"), na.strings="?")
 
 # filter to the dates we care about
 household_power_consumption <- subset(hpc, Date == "1/2/2007" | Date == "2/2/2007")
@@ -16,11 +16,11 @@ household_power_consumption$Date <- as.Date(as.character(household_power_consump
 # -----------------------------------------------------------------------
 # Plot 4 - to PNG
 # -----------------------------------------------------------------------
-png("~/Statistics/ExploratoryData/plot4.png", width = 480, height = 480)
+png("plot4.png", width = 480, height = 480)
 # set up graphic device for multiple plots
 par( mfcol = c( 2, 2 ) )
 
-# plot 2 but changed vlab
+# plot 2 (but changed vlab)
 plot(household_power_consumption$Time, household_power_consumption$Global_active_power, type="n", ylab="Global Active Power", xlab="")
 lines(household_power_consumption$Time, household_power_consumption$Global_active_power, type="l")
 
